@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafetería</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="src/PROMOS.png" alt="Café Logo" class="logo-icon" />
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="carousel">
+        <button class="arrow" id="prev">&#9664;</button>
+
+        <div class="products">
+          <!-- Asegúrate de que esta clase esté presente -->
+          <div class="product-container">
+            <div class="product">
+              <img src="src/cheesecake.png" alt="Cheesecake" />
+              <p>Cheesecake</p>
+            </div>
+            <span class="price">$700</span>
+          </div>
+
+          <div class="product-container">
+            <div class="product">
+              <img src="src/cafe.png" alt="Café negro" />
+              <p>Café negro</p>
+            </div>
+            <span class="price">$600</span>
+          </div>
+
+          <div class="product-container">
+            <div class="product">
+              <img src="src/milkshake.png" alt="Milkshake" />
+              <p>Milkshake</p>
+            </div>
+            <span class="price">$1000</span>
+          </div>
+          <div class="product-container">
+            <div class="product">
+              <img src="src/facturas.png" alt="Facturas" />
+              <p>Facturas</p>
+            </div>
+            <span class="price">$300</span>
+          </div>
+        </div>
+
+        <button class="arrow" id="next">&#9654;</button>
+      </div>
+
+      <button class="order-btn">Hacer pedido</button>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

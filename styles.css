@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: auto;
+  height: auto;
+  margin-right: 10px;
+}
+
+h1 {
+  font-size: 2em;
+  color: #5b3924;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto; /* Centra el contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 180px; /* Asegúrate de que coincida con el desplazamiento */
+  margin: 0 5px; /* Espaciado entre productos */
+}
+
+.products {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+  max-width: 900px; /* Ancho máximo del contenedor de productos */
+  margin: 0 auto; /* Centra el contenedor de productos */
+  padding: 0 10px; /* Añade un poco de padding si es necesario */
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c9b2a6;
+  padding: 10px;
+  border-radius: 10px;
+  width: 180px; /* Ancho fijo */
+  aspect-ratio: 1 / 1; /* Asegura forma cuadrada */
+  text-align: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.product:hover {
+  cursor: pointer;
+  transform: scale(1.05); /* Efecto de agrandamiento */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+.product img {
+  width: 100px; /* O el tamaño deseado */
+  height: 100px; /* Asegúrate de que las alturas sean iguales */
+  object-fit: fill; /* Mantiene la proporción de la imagen */
+}
+
+.product p {
+  font-size: 1.1em;
+  margin: 5px 0;
+}
+
+.price {
+  display: block;
+  font-size: 1.2em;
+  color: #000000;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 3em; /* Tamaño de la flecha */
+  cursor: pointer;
+  color: #a08d82; /* Color base */
+  position: absolute; /* Posiciona las flechas de forma absoluta */
+  z-index: 1; /* Asegura que las flechas estén por encima de los productos */
+  margin: 0 10px; /* Ajusta el margen a tu preferencia */
+}
+#prev {
+  left: -10px; /* Ajusta según sea necesario */
+}
+
+#next {
+  right: -10px; /* Ajusta según sea necesario */
+}
+.arrow:hover {
+  transform: scale(1.2) translateY(-3px); /* Agranda y desplaza ligeramente hacia arriba */
+  color: #665a53; /* Cambia de color en hover */
+}
+.arrow-left {
+  animation: arrow-bounce-left 1.5s infinite alternate ease-in-out;
+}
+
+.arrow-right {
+  animation: arrow-bounce-right 1.5s infinite alternate ease-in-out;
+}
+@keyframes arrow-bounce-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
+
+/* Keyframes para animación de rebote (flecha derecha) */
+@keyframes arrow-bounce-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}
+
+.order-btn {
+  background-color: #c9b2a6;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-size: 1.4em;
+  color: #000000;
+  margin-top: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 220px;
+  text-align: center;
+  display: block; /* Asegúrate de que el botón sea un bloque para centrarlo */
+  margin-left: auto; /* Centrar con márgenes automáticos */
+  margin-right: auto; /* Centrar con márgenes automáticos */
+}
+
+.order-btn:hover {
+  background-color: #b09076;
+  transform: scale(1.1); /* Mantener el efecto de agrandamiento en hover */
+}
