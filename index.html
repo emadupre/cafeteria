@@ -58,8 +58,19 @@
         <button class="arrow" id="next">&#9654;</button>
       </div>
 
-      <button class="order-btn">Hacer pedido</button>
+      <button class="order-btn" id="orderButton">Hacer pedido</button>
     </main>
+    <div id="customerModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <h2>¡Bienvenido!</h2>
+        <p>Por favor, ingresa tu nombre:</p>
+        <input type="text" id="customerName" placeholder="Nombre" required>
+        <div class="modal-buttons">
+          <button class="modal-button cancel-button" onclick="closeModal()">Cancelar</button>
+          <button class="modal-button confirm-button" onclick="confirmOrder()">Continuar</button>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
