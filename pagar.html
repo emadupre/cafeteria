@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f8f8;
+    }
+    .container {
+      width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .payment-options {
+      margin: 20px 0;
+    }
+    .payment-option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .payment-option:hover {
+      background-color: #e0e0e0;
+    }
+    .payment-option input[type="radio"] {
+      margin-right: 10px;
+    }
+    .total-section {
+      margin: 20px 0;
+    }
+    .btn-coupon, .btn-pay {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-coupon {
+      background-color: #007bff;
+      color: #fff;
+      margin-right: 10px;
+    }
+    .btn-pay {
+      background-color: #d1bba8;
+      color: #333;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+    }
+    .input-coupon {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    .btn-modal {
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-apply {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .btn-cancel {
+      background-color: #ccc;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Pagar</h2>
+      <span>Bienvenido <b id="customerName">Cliente</b>!</span>
+    </div>
+    
+    <div class="payment-options">
+      <p>Opciones de pago:</p>
+      <div class="payment-option">
+        <input type="radio" id="debito" name="paymentMethod" value="Débito">
+        <label for="debito">Débito</label>
+      </div>
+      <div class="payment-option">
+        <input type="radio" id="credito" name="paymentMethod" value="Crédito">
+        <label for="credito">Crédito</label>
+      </div>
+      <div class="payment-option">
+        <input type="radio" id="efectivo" name="paymentMethod" value="Efectivo">
+        <label for="efectivo">Efectivo</label>
+      </div>
+    </div>
+
+    <div class="total-section">
+      <p>Total a pagar:</p>
+      <h1 id="totalAmount">$0.00</h1>
+      <button class="btn-coupon" onclick="showModal()">CUPÓN</button>
+    </div>
+
+    <button class="btn-pay" onclick="pay()">Pagar</button>
+  </div>
+
+  <!-- Modal -->
+  <div id="couponModal" class="modal">
+    <div class="modal-content">
+      <h3>Aplicar Cupón</h3>
+      <input type="text" id="couponCode" class="input-coupon" placeholder="Ingrese el código">
+      <div class="modal-buttons">
+        <button class="btn-modal btn-apply" onclick="applyCoupon()">Aplicar</button>
+        <button class="btn-modal btn-cancel" onclick="hideModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let totalAmount = 0;
+    let couponApplied = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const customerName = localStorage.getItem('customerName') || 'Cliente';
+      totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
+      
+      document.getElementById('customerName').textContent = customerName;
+      document.getElementById('totalAmount').textContent = `$${totalAmount.toFixed(2)}`;
+    });
+
+    function showModal() {
+      document.getElementById('couponModal').style.display = 'flex';
+    }
+
+    function hideModal() {
+      document.getElementById('couponModal').style.display = 'none';
+    }
+
+    function applyCoupon() {
+      if (couponApplied) {
+        alert("El cupón ya ha sido aplicado.");
+        return;
+      }
+
+      const couponCode = document.getElementById('couponCode').value;
+      if (couponCode === "Sistemas") {
+        totalAmount *= 0.95; // Aplicar descuento del 5%
+        document.getElementById('totalAmount').textContent = `$${totalAmount.toFixed(2)}`;
+        alert("Cupón aplicado! Descuento del 5%");
+        couponApplied = true;
+      } else {
+        alert("Código de cupón incorrecto");
+      }
+      hideModal();
+    }
+
+    function pay() {
+      const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+      if (!selectedPaymentMethod) {
+        alert("Por favor, seleccione un método de pago.");
+        return;
+      }
+
+      alert(`Procesando el pago de $${totalAmount.toFixed(2)} con ${selectedPaymentMethod.value}`);
+      
+      console.log("Imprimiendo ticket...");
+      localStorage.clear();
+      
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
