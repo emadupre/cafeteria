@@ -1,0 +1,99 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  padding: 20px;
+  margin: 50px auto;
+}
+
+.order-confirmation {
+  background-color: #f5f5f5;
+  background: url(src/Fondo.png) bottom right no-repeat;
+  background-size: 350px;
+  color: #333;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.header h1 {
+  font-weight: lighter;
+}
+
+.header p {
+  padding-left: 20px;
+  font-size: 24px;
+}
+
+.header span {
+  font-weight: bold;
+}
+
+.order-details {
+  background-color: #ffffffa8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #dd7466;
+  color: white;
+}
+
+.btn-confirm {
+  background-color: #66c773;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background-color: #0364cc;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #c03623;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background-color: #328d3d;
+  color: white;
+}

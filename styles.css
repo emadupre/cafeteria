@@ -113,10 +113,11 @@ h1 {
   border: none;
   font-size: 3em; /* Tamaño de la flecha */
   cursor: pointer;
-  color: #a08d82; /* Color base */
   position: absolute; /* Posiciona las flechas de forma absoluta */
   z-index: 1; /* Asegura que las flechas estén por encima de los productos */
   margin: 0 10px; /* Ajusta el margen a tu preferencia */
+  justify-content: center;
+  align-items: center;
 }
 #prev {
   left: -10px; /* Ajusta según sea necesario */
@@ -125,9 +126,9 @@ h1 {
 #next {
   right: -10px; /* Ajusta según sea necesario */
 }
+
 .arrow:hover {
   transform: scale(1.2) translateY(-3px); /* Agranda y desplaza ligeramente hacia arriba */
-  color: #665a53; /* Cambia de color en hover */
 }
 .arrow-left {
   animation: arrow-bounce-left 1.5s infinite alternate ease-in-out;
@@ -199,6 +200,7 @@ h1 {
   width: 90%;
   max-width: 400px;
   text-align: center;
+  font-size: 20px;
 }
 
 .modal-content h2 {
@@ -209,10 +211,11 @@ h1 {
 .modal-content input {
   width: 100%;
   padding: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 15px;
+  font-size: 20px;
 }
 
 .modal-buttons {
@@ -224,9 +227,10 @@ h1 {
 .modal-button {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .confirm-button {
@@ -234,7 +238,15 @@ h1 {
   color: white;
 }
 
+.confirm-button:hover{
+  background-color: #337935;
+}
+
 .cancel-button {
   background-color: #f44336;
   color: white;
+}
+
+.cancel-button:hover{
+  background-color: #b1281e;
 }

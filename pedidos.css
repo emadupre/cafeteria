@@ -1,252 +1,269 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-    
-    background-color: #f5f5f5;
-    padding: 20px;
+  background-color: #f5f5f5;
+  padding: 20px;
 }
 
 .container {
-    background-image: url(/cafeteria/src/Fondo.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    max-width: 800px;
-    max-height: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 250px 1fr 100px;
-    gap: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: url(src/Fondo.png) bottom right no-repeat;
+  max-width: 800px;
+  max-height: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 250px 1fr 100px;
+  gap: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .order-panel {
-    text-align: center;
-    background-color: #C9B2A6;
-    border-radius: 8px;
-    height: fit-content;
+  text-align: center;
+  background-color: #c9b2a6;
+  border-radius: 8px;
+  height: fit-content;
 }
 
-.order-panel h3{
-    font-size: 20px;
-    font-style: normal;
-    font-weight: bold;
+.order-panel h3 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: bold;
 }
-.armar-pedido{
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    background-color: #D9D9D9;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 4px solid #000000;
+.armar-pedido {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #d9d9d9;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 4px solid #000000;
 }
 .order-title {
-    padding-top: 15px;
-    font-size: 25px;
+  padding-top: 15px;
+  font-size: 25px;
 }
 
 .order-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 0;
-    padding: 5px;
-    background-color: #C9B2A6;
-    border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 5px;
+  background-color: #c9b2a6;
+  border-radius: 4px;
 }
 
-#orderList{
-    font-weight: bold;
-    font-size: 13px;
+#orderList {
+  font-weight: bold;
+  font-size: 13px;
 }
 
 .delete-item {
-    border-radius: 20px;
-    background-color: #DD7466;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 0 5px;
+  border-radius: 20px;
+  background-color: #dd7466;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 5px;
 }
 
 .total {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    background-color: #D9D9D9;
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-top: 4px solid #000000;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: #d9d9d9;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 4px solid #000000;
 }
 
 .main-content {
-    padding: 15px;
+  padding: 15px;
 }
 
 .welcome {
-    margin-bottom: 20px;
-    text-align: center;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.welcome h2{
-    font-size: 36px;
-    font-weight: lighter;
-    padding-bottom: 30px;
+.welcome h2 {
+  font-size: 36px;
+  font-weight: lighter;
+  padding-bottom: 30px;
 }
-.welcome h2 > span{
-    font-weight: bold;
+.welcome h2 > span {
+  font-weight: bold;
 }
 
-.welcome h3{
-    font-size: 50px; 
-    font-weight: normal;
+.welcome h3 {
+  font-size: 50px;
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.8));
 }
 
 .drinks-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .drink-item {
-    background-color: #C9B2A6;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
+  background-color: #c9b2a6;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .drink-item:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .drink-icon {
-    font-size: 2em;
-    margin-bottom: 10px;
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 1000;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
 .modal-content {
-    position: relative;
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 10px;
+  position: relative;
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
 }
 
 .flavors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .flavor-item {
-    background-color: #e8e3e0;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
+  background-color: #e8e3e0;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .flavor-item:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .flavor-item.out-of-stock {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .flavor-item.out-of-stock::after {
-    content: "SIN STOCK";
-    display: block;
-    font-size: 0.8em;
-    color: red;
+  content: "SIN STOCK";
+  display: block;
+  font-size: 0.8em;
+  color: red;
 }
 
 .buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    flex: 1;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  flex: 1;
+  font-size: 20px;
 }
 
 .btn-cancel {
-    background-color: #e77c7c;
-    color: white;
+  background-color: #dd7466;
+  color: white;
 }
 
 .btn-confirm {
-    background-color: #7ce77c;
-    color: white;
+  background-color: #66c773;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #c03623;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background-color: #328d3d;
+  color: white;
 }
 
 .menu-sidebar {
-    padding: auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  padding: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.menu-title{
-    padding-top: 40px;
-    font-size: 20px;
-    margin-bottom: 15px;
-    height: fit-content;
+.menu-title {
+  padding-top: 40px;
+  font-size: 20px;
+  margin-bottom: 15px;
+  height: fit-content;
 }
 
-.menu-title h2{
-    font-weight: bolder;
+.menu-title h2 {
+  font-weight: bolder;
 }
 
 .menu-item {
-    background-color: #C9B2A6;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
+  background-color: #c9b2a6;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.menu-item:hover{
-    transform: scale(1.05);
+.menu-item:hover {
+  transform: scale(1.05);
 }
 
 .drink-price {
-    margin-top: 5px;
-    font-weight: bold;
+  margin-top: 5px;
+  font-weight: bold;
 }
