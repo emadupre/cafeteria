@@ -1,75 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cafetería</title>
     <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
     <header class="header">
-      <div class="logo">
-        <img src="src/PROMOS.png" alt="Café Logo" class="logo-icon" />
-      </div>
+        <div class="logo">
+            <img src="src/PROMOS.png" alt="Café Logo" class="logo-icon" />
+        </div>
     </header>
 
     <main class="container">
-      <div class="carousel">
-        <button class="arrow" id="prev">&#9664;</button>
-
-        <div class="products">
-          <div class="product-container">
-            <div class="product">
-              <img src="src/cheesecake.png" alt="Cheesecake" />
-              <p>Cheesecake</p>
+        <div class="carousel">
+            <div class="products">
+                <div class="product-container">
+                    <div class="product">
+                        <img src="src/cheesecake.png" alt="Cheesecake" />
+                        <p>Cheesecake</p>
+                        <span class="price">$700</span>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <div class="product">
+                        <img src="src/cafe.png" alt="Café negro" />
+                        <p>Café negro</p>
+                        <span class="price">$600</span>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <div class="product">
+                        <img src="src/milkshake.png" alt="Milkshake" />
+                        <p>Milkshake</p>
+                        <span class="price">$1000</span>
+                    </div>
+                </div>
+                <div class="product-container">
+                    <div class="product">
+                        <img src="src/facturas.png" alt="Facturas" />
+                        <p>Facturas</p>
+                        <span class="price">$300</span>
+                    </div>
+                </div>
             </div>
-            <span class="price">$700</span>
-          </div>
-
-          <div class="product-container">
-            <div class="product">
-              <img src="src/cafe.png" alt="Café negro" />
-              <p>Café negro</p>
+            <div class="carousel-nav">
+                <button class="arrow" id="prev">&#9664;</button>
+                <div class="dots"></div>
+                <button class="arrow" id="next">&#9654;</button>
             </div>
-            <span class="price">$600</span>
-          </div>
-
-          <div class="product-container">
-            <div class="product">
-              <img src="src/milkshake.png" alt="Milkshake" />
-              <p>Milkshake</p>
-            </div>
-            <span class="price">$1000</span>
-          </div>
-          <div class="product-container">
-            <div class="product">
-              <img src="src/facturas.png" alt="Facturas" />
-              <p>Facturas</p>
-            </div>
-            <span class="price">$300</span>
-          </div>
         </div>
 
-        <button class="arrow" id="next">&#9654;</button>
-      </div>
-
-      <button class="order-btn" id="orderButton">Hacer pedido</button>
+        <button class="order-btn" id="orderButton">Hacer pedido</button>
     </main>
+
     <div id="customerModal" class="modal" style="display: none;">
-      <div class="modal-content">
-        <h2>¡Bienvenido!</h2>
-        <p>Por favor, ingresa tu nombre:</p>
-        <input type="text" id="customerName" placeholder="Nombre" required>
-        <div class="modal-buttons">
-          <button class="modal-button cancel-button" onclick="closeModal()">Cancelar</button>
-          <button class="modal-button confirm-button" onclick="confirmOrder()">Continuar</button>
+        <div class="modal-content">
+            <h2>¡Bienvenido!</h2>
+            <p>Por favor, ingresa tu nombre:</p>
+            <input type="text" id="customerName" placeholder="Nombre" required>
+            <div class="modal-buttons">
+                <button class="modal-button cancel-button" onclick="closeModal()">Cancelar</button>
+                <button class="modal-button confirm-button" onclick="confirmOrder()">Continuar</button>
+            </div>
         </div>
-      </div>
     </div>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

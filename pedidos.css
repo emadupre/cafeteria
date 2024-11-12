@@ -133,14 +133,15 @@ img {
   transition: transform 0.2s;
 }
 
-.drink-item:hover {
-  transform: scale(1.05);
-}
-
 .drink-icon {
   font-size: 2em;
   margin-bottom: 10px;
 }
+
+.drink-item:hover {
+  transform: scale(1.05);
+}
+
 
 .modal {
   display: none;
@@ -266,4 +267,19 @@ button {
 .drink-price {
   margin-top: 5px;
   font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .drink-item {
+    padding: 12px;
+    font-size: 0.95em;
+  }
+
+  .drink-icon {
+    font-size: 1.8em;
+  }
+
+  .drinks-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
 }

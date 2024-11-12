@@ -10,9 +10,26 @@ body {
 }
 
 .container {
-  max-width: 600px;
-  padding: 20px;
-  margin: 50px auto;
+  background: url(src/Fondo.png) bottom right no-repeat;
+  background-size: 350px;
+  width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c9b2a6;
+  height: 40px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 10px;
 }
 
 .order-confirmation {
@@ -25,15 +42,7 @@ body {
   box-shadow: 0 8px 6px rgba(0, 0, 0, 0.1);
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  font-size: 15px;
-}
+
 
 .header h1 {
   font-weight: lighter;
@@ -41,7 +50,7 @@ body {
 
 .header p {
   padding-left: 20px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .header span {
@@ -49,10 +58,11 @@ body {
 }
 
 .order-details {
-  background-color: #ffffffa8;
+  background-color: #ffe4d7c7;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
 }
 .actions {
   display: flex;

@@ -4,91 +4,99 @@ const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const orderButton = document.getElementById("orderButton");
 const customerModal = document.getElementById("customerModal");
+const dotsContainer = document.querySelector(".dots");
 
 let currentIndex = 0;
 const totalProducts = productContainers.length;
 
-// Clonar el primer y el último producto para el efecto circular
-const firstClone = productContainers[0].cloneNode(true);
-const lastClone = productContainers[totalProducts - 1].cloneNode(true);
+// Crear puntos de navegación
+for (let i = 0; i < totalProducts; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    dot.addEventListener("click", () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+}
 
-products.appendChild(firstClone);
-products.prepend(lastClone);
+const dots = document.querySelectorAll(".dot");
 
-// Actualizar el ancho total del contenedor
-products.style.display = "flex";
-products.style.width = `${(totalProducts + 2) * 200}px`;
+function updateCarousel() {
+    const slideWidth = productContainers[0].offsetWidth;
+    products.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+    updateDots();
+}
 
-const updateCarousel = () => {
-  products.style.transform = `translateX(${-currentIndex * 200}px)`;
-};
+function updateDots() {
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+    });
+}
 
-// Moverse hacia la izquierda
+function goToSlide(index) {
+    currentIndex = index;
+    updateCarousel();
+}
+
 prev.addEventListener("click", () => {
-  if (currentIndex === 0) {
-    currentIndex = totalProducts;
-    products.style.transition = "none";
+    currentIndex = (currentIndex - 1 + totalProducts) % totalProducts;
     updateCarousel();
-    setTimeout(() => {
-      currentIndex--;
-      products.style.transition = "transform 0.5s ease";
-      updateCarousel();
-    }, 0);
-  } else {
-    currentIndex--;
-    updateCarousel();
-  }
 });
 
-// Moverse hacia la derecha
 next.addEventListener("click", () => {
-  if (currentIndex === totalProducts - 1) {
-    currentIndex = -1;
-    products.style.transition = "none";
+    currentIndex = (currentIndex + 1) % totalProducts;
     updateCarousel();
-    setTimeout(() => {
-      currentIndex++;
-      products.style.transition = "transform 0.5s ease";
-      updateCarousel();
-    }, 0);
-  } else {
-    currentIndex++;
-    updateCarousel();
-  }
 });
 
-// Funcionalidad del modal
 orderButton.addEventListener("click", () => {
-  customerModal.style.display = "flex";
+    customerModal.style.display = "flex";
 });
 
 function closeModal() {
-  customerModal.style.display = "none";
-  document.getElementById("customerName").value = "";
+    customerModal.style.display = "none";
+    document.getElementById("customerName").value = "";
 }
 
 function confirmOrder() {
-  const customerName = document.getElementById("customerName").value.trim();
-  if (customerName === "") {
-    alert("Por favor, ingresa tu nombre");
-    return;
-  }
+    const customerName = document.getElementById("customerName").value.trim();
+    if (customerName === "") {
+        alert("Por favor, ingresa tu nombre");
+        return;
+    }
 
-  // Guardar el nombre del cliente en localStorage
-  localStorage.setItem("customerName", customerName);
-  
-  // Redirigir a la página de pedidos
-  window.location.href = "pedidos.html";
+    localStorage.setItem("customerName", customerName);
+    window.location.href = "pedidos.html";
 }
 
-// Cerrar modal si se hace clic fuera de él
 window.onclick = function(event) {
-  if (event.target === customerModal) {
-    closeModal();
-  }
+    if (event.target === customerModal) {
+        closeModal();
+    }
 }
 
 // Inicializar el carrusel
 updateCarousel();
 
+// Añadir soporte para deslizar en dispositivos táctiles
+let touchStartX = 0;
+let touchEndX = 0;
 
+products.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+products.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchStartX - touchEndX > 50) {
+        // Deslizar a la izquierda
+        next.click();
+    } else if (touchEndX - touchStartX > 50) {
+        // Deslizar a la derecha
+        prev.click();
+    }
+}
+
+// Ajustar el carrusel cuando cambia el tamaño de la ventana
+window.addEventListener('resize', updateCarousel);

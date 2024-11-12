@@ -26,9 +26,8 @@ body {
 }
 
 .logo-icon {
-  width: auto;
+  max-width: 100%;
   height: auto;
-  margin-right: 10px;
 }
 
 h1 {
@@ -39,121 +38,99 @@ h1 {
 
 .container {
   max-width: 900px;
-  margin: 0 auto; /* Centra el contenedor */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra horizontalmente */
+  align-items: center;
 }
 
 .carousel {
-  display: flex;
-  align-items: center;
+  width: 100%;
   position: relative;
   overflow: hidden;
-  width: 100%;
-}
-
-.product-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  min-width: 180px; /* Asegúrate de que coincida con el desplazamiento */
-  margin: 0 5px; /* Espaciado entre productos */
 }
 
 .products {
   display: flex;
   transition: transform 0.5s ease;
-  width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
-  max-width: 900px; /* Ancho máximo del contenedor de productos */
-  margin: 0 auto; /* Centra el contenedor de productos */
-  padding: 0 10px; /* Añade un poco de padding si es necesario */
+  width: 100%;
+}
+
+.product-container {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .product {
+  background-color: #c9b2a6;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: #c9b2a6;
-  padding: 10px;
-  border-radius: 10px;
-  width: 180px; /* Ancho fijo */
-  aspect-ratio: 1 / 1; /* Asegura forma cuadrada */
-  text-align: center;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
 .product:hover {
-  cursor: pointer;
-  transform: scale(1.05); /* Efecto de agrandamiento */
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+  transform: scale(1.05);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .product img {
-  width: 100px; /* O el tamaño deseado */
-  height: 100px; /* Asegúrate de que las alturas sean iguales */
-  object-fit: fill; /* Mantiene la proporción de la imagen */
+  width: 60%;
+  height: auto;
+  object-fit: contain;
 }
 
 .product p {
   font-size: 1.1em;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .price {
-  display: block;
   font-size: 1.2em;
   color: #000000;
+  font-weight: bold;
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .arrow {
   background: none;
   border: none;
-  font-size: 3em; /* Tamaño de la flecha */
+  font-size: 2em;
   cursor: pointer;
-  position: absolute; /* Posiciona las flechas de forma absoluta */
-  z-index: 1; /* Asegura que las flechas estén por encima de los productos */
-  margin: 0 10px; /* Ajusta el margen a tu preferencia */
+  padding: 0 10px;
+}
+
+.dots {
+  display: flex;
   justify-content: center;
-  align-items: center;
-}
-#prev {
-  left: -10px; /* Ajusta según sea necesario */
+  margin: 0 10px;
 }
 
-#next {
-  right: -10px; /* Ajusta según sea necesario */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #c9b2a6;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
-.arrow:hover {
-  transform: scale(1.2) translateY(-3px); /* Agranda y desplaza ligeramente hacia arriba */
-}
-.arrow-left {
-  animation: arrow-bounce-left 1.5s infinite alternate ease-in-out;
-}
-
-.arrow-right {
-  animation: arrow-bounce-right 1.5s infinite alternate ease-in-out;
-}
-@keyframes arrow-bounce-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-5px);
-  }
-}
-
-/* Keyframes para animación de rebote (flecha derecha) */
-@keyframes arrow-bounce-right {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(5px);
-  }
+.dot.active {
+  background-color: #5b3924;
 }
 
 .order-btn {
@@ -163,20 +140,16 @@ h1 {
   border-radius: 20px;
   font-size: 1.4em;
   color: #000000;
-  margin-top: 50px;
+  margin-top: 30px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s ease-in-out;
   width: 100%;
   max-width: 220px;
-  text-align: center;
-  display: block; /* Asegúrate de que el botón sea un bloque para centrarlo */
-  margin-left: auto; /* Centrar con márgenes automáticos */
-  margin-right: auto; /* Centrar con márgenes automáticos */
 }
 
 .order-btn:hover {
   background-color: #b09076;
-  transform: scale(1.1); /* Mantener el efecto de agrandamiento en hover */
+  transform: scale(1.1);
 }
 
 .modal {
@@ -188,7 +161,6 @@ h1 {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -200,7 +172,6 @@ h1 {
   width: 90%;
   max-width: 400px;
   text-align: center;
-  font-size: 20px;
 }
 
 .modal-content h2 {
@@ -211,11 +182,10 @@ h1 {
 .modal-content input {
   width: 100%;
   padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
   border: 1px solid #ddd;
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .modal-buttons {
@@ -230,7 +200,7 @@ h1 {
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .confirm-button {
@@ -238,7 +208,7 @@ h1 {
   color: white;
 }
 
-.confirm-button:hover{
+.confirm-button:hover {
   background-color: #337935;
 }
 
@@ -247,6 +217,18 @@ h1 {
   color: white;
 }
 
-.cancel-button:hover{
+.cancel-button:hover {
   background-color: #b1281e;
+}
+
+@media screen and (min-width: 768px) {
+  .product-container {
+      flex: 0 0 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .product-container {
+      flex: 0 0 25%;
+  }
 }
