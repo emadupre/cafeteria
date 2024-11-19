@@ -269,17 +269,69 @@ button {
   font-weight: bold;
 }
 
-@media (max-width: 992px) {
-  .drink-item {
-    padding: 12px;
-    font-size: 0.95em;
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    max-height: none;
   }
 
-  .drink-icon {
-    font-size: 1.8em;
+  .order-panel {
+    order: -1;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .main-content {
+    width: 100%;
   }
 
   .drinks-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-sidebar {
+    order: 3;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .menu-title {
+    display: none;
+  }
+
+  .menu-item {
+    flex: 1;
+    max-width: 30%;
+  }
+
+  .welcome h2 {
+    font-size: 24px;
+  }
+
+  .welcome h3 {
+    font-size: 36px;
+  }
+
+  .modal-content {
+    width: 90%;
+    margin: 10% auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .drinks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btn-cancel, .btn-confirm {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }

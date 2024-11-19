@@ -104,3 +104,4 @@ let order = {};
                 alert('Por favor, agregue items a su pedido');
             }
         }
+        
